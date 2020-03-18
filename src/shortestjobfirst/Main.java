@@ -5,7 +5,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Andrew");
-        System.out.println("Ereny");
+        int x = 5;
+        System.out.println(x);
     }
 }
