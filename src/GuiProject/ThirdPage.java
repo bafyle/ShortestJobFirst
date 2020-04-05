@@ -40,6 +40,10 @@ public class ThirdPage implements ActionListener {
         b3.addActionListener(this);
         
     }
+    public ThirdPage()
+    {
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e)
