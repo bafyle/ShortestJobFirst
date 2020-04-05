@@ -1,5 +1,7 @@
 package shortestjobfirst;
 
+import GuiProject.SecondPage;
+import GuiProject.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,18 +22,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //Make the window 1100 x 600
-        // set the default layout and to resizable
-        JFrame mainFrame = new JFrame("test");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(1100, 600);
-        //mainFrame.setLayout(null);
-        mainFrame.setResizable(false);
-        JPanel chartPanel = new CustomPanel();
-        mainFrame.add(chartPanel);
-        
-        
-        
-        mainFrame.setVisible(true);
+        FirstPage f=new FirstPage();
     }
 }
