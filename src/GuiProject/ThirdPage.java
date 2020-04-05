@@ -8,6 +8,7 @@ package GuiProject;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -16,16 +17,15 @@ import javax.swing.*;
  */
 public class ThirdPage implements ActionListener {
     JFrame r=new JFrame();
-    JPanel p3=new JPanel();
+    CustomPanel p3 = new CustomPanel();
     JButton b3=new JButton("BACK");
-    
-    
-    
-    
-    
-    public ThirdPage(){
+    private ArrayList<shortestjobfirst.Process> processes;
+
+    public ThirdPage(ArrayList<shortestjobfirst.Process> ps)
+    {
+        processes = ps;
         r.setVisible(true);
-        r.setSize(500,400);
+        r.setSize(1100, 600);
         r.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         r.setLayout(new BorderLayout());
         r.setLocation(30,30);
@@ -33,16 +33,21 @@ public class ThirdPage implements ActionListener {
         p3.add(b3);
         p3.setLayout(null);
         p3.setBackground(new Color(52,73,94));
-        b3.setBounds(180, 270, 140, 60);
+        b3.setBounds(500, 500, 140, 60);
         b3.setBackground(new Color(230,126,34));
         b3.setForeground(new Color(52,73,94));
         b3.setFont(new Font("italic",Font.ITALIC,15));
+        b3.addActionListener(this);
         
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==b3){
+        r.setVisible(false);
+        FirstPage pf = new FirstPage();
+        }
     }
     
 }
