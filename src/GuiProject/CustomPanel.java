@@ -18,7 +18,7 @@ public class CustomPanel extends JPanel
     {
         g.drawRect(40, 250, 1000, 50);
         g.drawString(Integer.toString(biggestNumber), 1040, numberY);
-        /*for(shortestjobfirst.Process s : ps)
+        for(shortestjobfirst.Process s : ps)
         {
             for(Integer i : s.startTimes)
             {
@@ -27,7 +27,15 @@ public class CustomPanel extends JPanel
                 g.drawString(Integer.toString(i), 40 + x, numberY);
                 g.drawString("P"+s.processID, 40+x, StringY);
             }
-        }*/
+            for(Integer i : s.endTimes)
+            {
+                int x = (int)((double)i / (double)biggestNumber * 1000);
+                g.drawLine(40 + x, lineY1, 40 + x, lineY2);
+                g.drawString(Integer.toString(i), 40 + x, numberY);
+                //g.drawString("P"+s.processID, 40+x, StringY);
+            }
+        }
+        
     }
     public CustomPanel(ArrayList<shortestjobfirst.Process> pss, int bn)
     {

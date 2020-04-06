@@ -43,6 +43,11 @@ public class SJF
                         queue.add(0, processes.get(j));
                 }
             }
+            if(queue.isEmpty())
+            {
+                BiggestCycle = i;
+                break;
+            }
             int min = queue.size()-1;
             for(int f = 0; f < queue.size(); f++)
             {
@@ -63,16 +68,10 @@ public class SJF
             lastID = queue.get(0).processID;
             if(queue.get(0).remainingTime == 0)
             {
-                if(queue.size() == 1)
+                if(queue.get(0).remainingTime == 0)
                 {
                     processes.get(queue.get(0).processID -1).pushEndTime(i);
-                    BiggestCycle = i;
-                    break;
-                }
-                else
-                {
-                    lastID = queue.get(0).processID;
-                    queue.remove(queue.get(0));
+                    queue.remove(0);
                 }
             }
         }
