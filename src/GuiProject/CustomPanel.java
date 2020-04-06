@@ -16,7 +16,7 @@ public class CustomPanel extends JPanel
     @Override
     public void paint(Graphics g)
     {
-        g.drawRect(40, 250, 1000, 50);
+        /*g.drawRect(40, 250, 1000, 50);
         g.drawString(Integer.toString(biggestNumber), 1040, numberY);
         for(shortestjobfirst.Process s : ps)
         {
@@ -34,7 +34,7 @@ public class CustomPanel extends JPanel
                 g.drawString(Integer.toString(i), 40 + x, numberY);
                 //g.drawString("P"+s.processID, 40+x, StringY);
             }
-        }
+        }*/
         
     }
     public CustomPanel(ArrayList<shortestjobfirst.Process> pss, int bn)
