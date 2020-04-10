@@ -5,7 +5,6 @@ public class SJF
     public ArrayList<Process> processes;
     private ArrayList<Process> queue;
     private int BiggestCycle;
-    
     public SJF()
     {
         queue = new ArrayList<>();
@@ -22,7 +21,6 @@ public class SJF
     public void start()
     {
         int lastID = -1;
-        int i = 0;
         for(Process s : processes)
         {
             if(s.arrivalTime == 0)
@@ -31,6 +29,7 @@ public class SJF
                 break;
             }
         }
+        int i = 0;
         while(true)
         {
             for(int j = 0; j < processes.size(); j++)
@@ -68,11 +67,8 @@ public class SJF
             lastID = queue.get(0).processID;
             if(queue.get(0).remainingTime == 0)
             {
-                if(queue.get(0).remainingTime == 0)
-                {
-                    processes.get(queue.get(0).processID -1).pushEndTime(i);
-                    queue.remove(0);
-                }
+                processes.get(queue.get(0).processID -1).pushEndTime(i);
+                queue.remove(0);
             }
         }
     }

@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.lang.NumberFormatException;
 
 /**
  *
@@ -24,17 +25,8 @@ public class FirstPage extends JFrame implements ActionListener{
  
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public FirstPage(){
-        this.setTitle("number of process");
+        this.setTitle("Shortest Job First");
         this.setResizable(false);
         this.setSize(500,400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,18 +50,33 @@ public class FirstPage extends JFrame implements ActionListener{
         b1.setForeground(new Color(52,73,94));
         b1.setFont(new Font("italic",Font.ITALIC,15));
         b1.addActionListener(this);
-        
-        
-        
+        t1.requestFocus();
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==b1){
-            p1.setVisible(false);
-            SecondPage s=new SecondPage();
-        
-    }
+        if(e.getSource()==b1)
+        {
+            int numberOfProcess;
+            try
+            {
+                numberOfProcess = Integer.parseInt(t1.getText().trim());
+                if(numberOfProcess < 1)
+                {
+                    NumberFormatException f = new NumberFormatException();
+                    throw f;
+                }
+                p1.setVisible(false);
+                setVisible(false);
+                SecondPage s=new SecondPage(numberOfProcess);
+            }
+            catch(NumberFormatException error)
+            {
+                JOptionPane.showConfirmDialog(this, "Please enter a valid value", "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                t1.setText("");
+                t1.requestFocus();
+            }
+        }
     }
 }

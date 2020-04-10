@@ -11,7 +11,7 @@ public class CustomPanel extends JPanel
     private final int lineY2 = 250;
     private final int StringY = 275;
     private final int numberY = 325;
-    private int y = 150;
+    private int y = 0;
     public ArrayList<shortestjobfirst.Process> ps;
     public int biggestNumber;
     @Override

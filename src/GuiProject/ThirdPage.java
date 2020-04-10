@@ -22,42 +22,42 @@ public class ThirdPage implements ActionListener {
 
     public ThirdPage(ArrayList<shortestjobfirst.Process> ps, SJF algo)
     {
-        CustomPanel p3 = new CustomPanel(ps, algo.getBiggestCycle());
-        r.setVisible(true);
-        r.setSize(1100, 600);
+        r.setTitle("Shorest Job First");
+        r.setLayout(null);
+        r.setSize(1100, 400);
         r.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         r.setLayout(new BorderLayout());
         r.setLocation(30,30);
         r.setResizable(false);
         
-        
+        CustomPanel p3 = new CustomPanel(ps, algo.getBiggestCycle());
+
+        p3.setLayout(null);
+
         waitArea.setText("Average waiting time: " + algo.calculateWaitingTime() + "\n");
         waitArea.setFont(new Font(Font.MONOSPACED, 0, 18));
+        waitArea.setBounds(50, 10, 100, 200);
         waitArea.setEditable(false);
-        waitArea.setBounds(40, 350, 300, 200);
+        
         for(int i = 0; i < ps.size(); i++)
         {
             waitArea.setText(waitArea.getText() + "Process " + (i+1) + " wait time: " + ps.get(i).waitingTime + "\n");
         }
         JScrollPane sp = new JScrollPane(waitArea);
-        sp.setBounds(40, 350, 300, 200);
-        
-        p3.add(b3);
-        //p3.add(waitLabel);
-        
-        
-        p3.setLayout(null);
-        p3.setBackground(new Color(52,73,94));
-        b3.setBounds(500, 500, 140, 60);
+        //sp.setPreferredSize(new Dimension(300, 200));
+        sp.setBounds(50, 10, 500, 200);
+        p3.add(sp);
+
         b3.setBackground(new Color(230,126,34));
         b3.setForeground(new Color(52,73,94));
+        b3.setBounds(980, 10, 100, 30);
         b3.setFont(new Font("italic",Font.ITALIC,15));
         b3.addActionListener(this);
-        p3.add(sp);
-        //p3.add(waitArea);
+        
+        p3.add(b3);
+
         r.add(p3);
-        p3.setVisible(false);
-        p3.setVisible(true);
+        r.setVisible(true);
     }
     public ThirdPage()
     {
